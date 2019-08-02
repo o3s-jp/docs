@@ -1,50 +1,40 @@
-[草案]
+# Draft
 
-令和・ちんたま大戦
+The Chintama (令和・ちんたま大戦)
 
-* MMO
-* マリオライクな横スクロールゲーム
-* プレイヤーは広大な横スクロール可能な空間に spawn される
-* spawn 前にプレイヤーは千葉軍か埼玉軍か選ぶ
-* ランダムに落ちてるアイテム（武器）を拾って使って他軍のプレイヤー同士殴り合う撃ち合う（HPが決まってて0になると死亡）
-* 各所にランドマークという移動しないが攻撃してくる NPC を設置（プレイヤーはランドマークを攻撃してHP 0にすることでランドマークを自軍の所有物化）
-* ランドマークはデフォルトは，千葉埼玉無差別攻撃．どちらかの軍の手に渡ると他軍を攻撃．
-* ワールド全体でランドマークをより多く所有している軍が優勢と判断
-* (基本方針) 実装者の気分でゲームシステム変えて良し
-* さいたまの究極奥義は健在
+* MMO 2D platformer game.
+* Players choose their team (Chiba or Saitama) before starting.
+* Using weapons (e.g. guns) which are randomly placed in the world, players fight against opponent team players.
+* Being hit by weapons, players lose their lives and they die if their lives reache to 0.
+* The main goal of the teams is to acquire `landmarks`, which are special objects located randomly in the world.
+* Players can acquire landmarks by attacking them and making their lives 0.
+* Landmarks can also attack. By default, landmarks attack both teams but once a landmark is acquired, it attacks its opponent team.
+* A team that acquires more landmarks than the other is considered dominant.
+* The ultimate weapon of Saitama:
 
 ![](http://kaomojich.com/wp-content/uploads/saitama/saitama_01.gif)
 
+## Player
 
----いつかやる
-* いろんな地形やアイテムを実装したい
-* 特産品に絡めた概念が欲しい
+* Chiba player color is blue.
+* Saitama player color is red.
+* Control:
+    * Move right
+    * Move left
+    * Jump
+    * Take an item
+    * Use an item
+    * Drop an item
 
-### プレイヤー
+## Item
 
-* 千葉軍は青っぽいなにか
-* 埼玉軍は赤っぽいなにか
-* 操作
-    * 右移動
-    * 左移動
-    * ジャンプ
-    * アイテムを拾う
-    * アイテムを使う
-        * アイテムには残存数あり（例：銃弾）
-        * 残存数なくなったら消える
-    * アイテムを捨てる（その場に置かれる）
-    * アイテムは一個しか持てない
+* Players cannot attack the same team players.
+* Let's implement `gun` first.
 
-### アイテム
+## Landmark
 
-* 同軍であれば攻撃は当たらない
-* まずは銃だけ(１個につき１０発)
-    * 今向いてる方に飛ぶ
-    * つまり左右にしか飛ばない
-
-### ランドマーク
-
-* 最初は白っぽいなにか
-* 千葉軍化すると青っぽいなにか
-* 埼玉軍化すると赤っぽいなにか
-* NPC，攻撃は銃だけ，近づくと一定間隔で撃ってくる
+* Landmarks are white objects by default.
+* They turn blue if acquired by Chiba.
+* They turn red if acquired by Saitama.
+* They are fixed to the ground. (No velocity)
+* They use `gun` to attack.
